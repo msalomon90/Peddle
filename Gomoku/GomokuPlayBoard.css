@@ -1,0 +1,791 @@
+.dropdownButt
+{
+  color: white;
+  padding: 0px;
+  font-size: 19px;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  height: inherit;
+  width: inherit;
+  background: tomato;  /* fallback for old browsers */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+}
+
+.dropdownButt:hover, .dropdownButt:focus
+{
+  background-color: #eb4000;
+}
+
+.dropdown
+{
+  position: relative;
+  width: 10em;
+  height: 4em;
+  margin-bottom: 1%;
+  margin-right: none;
+  margin-top: none;
+}
+
+#x15:hover, #x19:hover, #compv1:hover, #onev1:hover, #gridReset:hover
+{
+  background-color: #ff846e;
+}
+
+#x15:focus, #x19:focus, #compv1:focus, #onev1:focus, #gridReset:focus
+{
+  background-color: #ff846e;
+}
+
+#homePage:hover, #aboutMe:hover, #learnToPlay:hover
+{
+  background-color: #ff846e;
+}
+
+#homePage:focus, #aboutMe:focus, #learnToPlay:focus
+{
+  background-color: #ff846e;
+}
+
+.clickContent
+{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width:inherit;
+  line-height: 2em;
+  border-radius: 30px;
+  overflow: auto;
+  cursor: pointer;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  text-align: center;
+  opacity: 0.95;
+}
+
+html
+{
+  width: 100%;
+  height: 100%;
+}
+
+body
+{
+  width: 99%;
+  height: 98%;
+  background: -webkit-linear-gradient(left, #859398, #283048);
+  background-size: contain;
+}
+
+.menuContainer
+{
+  height: 5em;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: none;
+  margin-right: none;
+  margin-left: none;
+  padding-left: 0px;
+}
+
+.gameContainer
+{
+  display: flex;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  align-content: center;
+  margin: none;
+  margin-right: none;
+  justify-content: space-around;
+}
+
+.infoContainer
+{
+  width:auto;
+  height: auto;
+  vertical-align: inherit;
+  margin: auto;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-weight: 900;
+  font-size: 125%;
+  color:whitesmoke;
+}
+
+.info
+{
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 1);
+}
+
+.gridContainer
+{
+  position: relative;
+  width: 800px;
+  height: 800px;
+  margin: auto;
+}
+
+.noClick
+{
+  pointer-events: none;
+}
+
+table
+{
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: auto;
+  border-collapse: collapse;
+  border: none;
+}
+
+td
+{
+  border: none;
+  width: 5%;
+  height: inherit;
+  align-items: center;
+}
+
+tr
+{
+  height: 5%;
+  width: 100%;
+  border: none;
+}
+
+.gridCell
+{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  background: white;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-weight:900;
+  font-size: 150%;
+  border-radius: 5px;
+  color: crimson;
+  opacity: 0.8;
+}
+
+.flashClass
+{
+  animation: suggestAnimation;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-direction: normal;
+}
+
+.gridCell:hover, .gridCell:focus
+{
+  animation: regBoxBorder;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-direction: alternate-reverse;
+}
+
+.gridCell:active
+{
+  top: 1px;
+}
+
+@-webkit-keyframes suggestAnimation
+{
+  0%
+  {
+    box-shadow: inset 0 0 0 0vw rgba(255, 0, 0, 1);
+  }
+  50%
+  {
+    box-shadow: inset 0 0 0 1vw rgba(255, 0, 0, 0.5);
+  }
+  100%
+  {
+    box-shadow: inset 0 0 0 2vw rgba(255, 0, 0, 0.2);
+  }
+}
+
+@-webkit-keyframes regBoxBorder
+{
+  0%
+  {
+    background: rgba(255, 204, 204, 1.0);
+  }
+  20%
+  {
+    background: rgba(255, 229, 204, 1.0);
+  }
+  60%
+  {
+    background: rgba(255, 254, 204, 1.0);
+  }
+  60%
+  {
+    background: rgba(230, 255, 204, 1.0);
+  }
+  80%
+  {
+    background: rgba(204, 255, 204, 1.0);
+  }
+  100%
+  {
+    background: rgba(204, 255, 229, 1.0);
+  }
+}
+
+.horizontalCell1
+{
+  animation: horizontalWinAnimation1;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.horizontalCell2
+{
+  animation: horizontalWinAnimation2;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.horizontalCell3
+{
+  animation: horizontalWinAnimation3;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.horizontalCell4
+{
+  animation: horizontalWinAnimation4;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.horizontalCell5
+{
+  animation: horizontalWinAnimation5;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes horizontalWinAnimation1
+{
+  0%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  20%, 100%
+  {
+    box-shadow: inset 60px 0 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes horizontalWinAnimation2
+{
+  0%, 20%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  40%, 100%
+  {
+    box-shadow: inset 60px 0 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes horizontalWinAnimation3
+{
+  0%, 40%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  60%, 100%
+  {
+    box-shadow: inset 60px 0 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes horizontalWinAnimation4
+{
+  0%, 60%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  80%, 100%
+  {
+    box-shadow: inset 60px 0 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes horizontalWinAnimation5
+{
+  0%, 80%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  100%
+  {
+    box-shadow: inset 60px 0 0 0 #c0c0c0;
+  }
+}
+
+.verticalCell1
+{
+  animation: verticalWinAnimation1;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.verticalCell2
+{
+  animation: verticalWinAnimation2;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.verticalCell3
+{
+  animation: verticalWinAnimation3;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.verticalCell4
+{
+  animation: verticalWinAnimation4;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.verticalCell5
+{
+  animation: verticalWinAnimation5;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes verticalWinAnimation1
+{
+  0%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  20%, 100%
+  {
+    box-shadow: inset 0 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes verticalWinAnimation2
+{
+  0%, 20%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  40%, 100%
+  {
+    box-shadow: inset 0 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes verticalWinAnimation3
+{
+  0%, 40%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  60%, 100%
+  {
+    box-shadow: inset 0 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes verticalWinAnimation4
+{
+  0%, 60%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  80%, 100%
+  {
+    box-shadow: inset 0 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes verticalWinAnimation5
+{
+  0%, 80%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  100%
+  {
+    box-shadow: inset 0 60px 0 0 #c0c0c0;
+  }
+}
+
+.leftDiagonalCell1
+{
+  animation: leftDiagonalAnimation1;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.leftDiagonalCell2
+{
+  animation: leftDiagonalAnimation2;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.leftDiagonalCell3
+{
+  animation: leftDiagonalAnimation3;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.leftDiagonalCell4
+{
+  animation: leftDiagonalAnimation4;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.leftDiagonalCell5
+{
+  animation: leftDiagonalAnimation5;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes leftDiagonalAnimation1
+{
+  0%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  20%, 100%
+  {
+    box-shadow: inset -60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes leftDiagonalAnimation2
+{
+  0%, 20%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  40%, 100%
+  {
+    box-shadow: inset -60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes leftDiagonalAnimation3
+{
+  0%, 40%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  60%, 100%
+  {
+    box-shadow: inset -60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes leftDiagonalAnimation4
+{
+  0%, 60%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  80%, 100%
+  {
+    box-shadow: inset -60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes leftDiagonalAnimation5
+{
+  0%, 80%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  100%
+  {
+    box-shadow: inset -60px 60px 0 0 #c0c0c0;
+  }
+}
+
+.rightDiagonalCell1
+{
+  animation: rightDiagonalAnimation1;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.rightDiagonalCell2
+{
+  animation: rightDiagonalAnimation2;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.rightDiagonalCell3
+{
+  animation: rightDiagonalAnimation3;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.rightDiagonalCell4
+{
+  animation: rightDiagonalAnimation4;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.rightDiagonalCell5
+{
+  animation: rightDiagonalAnimation5;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes rightDiagonalAnimation1
+{
+  0%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  20%, 100%
+  {
+    box-shadow: inset 60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes rightDiagonalAnimation2
+{
+  0%, 20%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  40%, 100%
+  {
+    box-shadow: inset 60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes rightDiagonalAnimation3
+{
+  0%, 40%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  60%, 100%
+  {
+    box-shadow: inset 60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes rightDiagonalAnimation4
+{
+  0%, 60%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  80%, 100%
+  {
+    box-shadow: inset 60px 60px 0 0 #c0c0c0;
+  }
+}
+
+@-webkit-keyframes rightDiagonalAnimation5
+{
+  0%, 80%
+  {
+    box-shadow: inset 0 0 0 0 #c0c0c0;
+  }
+  100%
+  {
+    box-shadow: inset 60px 60px 0 0 #c0c0c0;
+  }
+}
+
+.show
+{
+  display:block;
+}
+
+.colorDeepPink:hover, .colorDeepPink:focus
+{
+  background: DeepPink;
+}
+
+.colorLightSalmon:hover, .colorLightSalmon:focus
+{
+  background: LightSalmon;
+}
+
+.colorSalmon:hover, .colorSalmon:focus
+{
+  background: Salmon;
+}
+
+.colorLightCoral:hover, .colorLightCoral:focus
+{
+  background: LightCoral;
+}
+
+.colorCrimson:hover, .colorCrimson:focus
+{
+  background: Crimson;
+}
+
+.colorOrangeRed:hover, .colorOrangeRed:focus
+{
+  background: OrangeRed;
+}
+
+.colorTomato:hover, .colorTomato:focus
+{
+  background: Tomato;
+}
+
+.colorYellow:hover, .colorYellow:focus
+{
+  background: Yellow;
+}
+
+.colorOrange:hover, .colorOrange:focus
+{
+  background: Orange;
+}
+
+.colorPeachPuff:hover, .colorPeachPuff:focus
+{
+  background: PeachPuff;
+}
+
+.colorGold:hover, .colorGold:focus
+{
+  background: Gold;
+}
+
+.colorGoldenrod:hover, .colorGoldenrod:focus
+{
+  background: Goldenrod;
+}
+
+.colorLime:hover, .colorLime:focus
+{
+  background: Lime;
+}
+
+.colorMediumAquamarine:hover, .colorMediumAquamarine:focus
+{
+  background: MediumAquamarine;
+}
+
+.colorAqua:hover, .colorAqua:focus
+{
+  background: Aqua;
+}
+
+.colorAquamarine:hover, .colorAquamarine:focus
+{
+  background: Aquamarine;
+}
+
+.colorMediumTurquoise:hover, .colorMediumTurquoise:focus
+{
+  background: MediumTurquoise;
+}
+
+.colorSkyBlue:hover, .colorSkyBlue:focus
+{
+  background: SkyBlue;
+}
+
+.colorDeepSkyBlue:hover, .colorDeepSkyBlue:focus
+{
+  background: DeepSkyBlue;
+}
+
+.colorViolet:hover, .colorViolet:focus
+{
+  background: Violet;
+}
+
+.colorMagenta:hover, .colorMagenta:focus
+{
+  background: Magenta;
+}
+
+.colorAzure:hover, .colorAzure:focus
+{
+  background: Azure;
+}
+
+.colorLavenderBlush:hover, .colorLavenderBlush:focus
+{
+  background: LavenderBlush;
+}
+
+.colorLightGray:hover, .colorLightGray:focus
+{
+  background: LightGray;
+}
+
+.colorSlateGray:hover, .colorSlateGray:focus
+{
+  background: SlateGray;
+}

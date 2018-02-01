@@ -1,0 +1,112 @@
+/*
+  Sanjay Soundarajan
+  109146095
+  Follow the development of this project: https://github.com/megasanjay/CSCI130/tree/master/Gomoku
+*/
+
+.dropdown
+{
+  position: relative;
+  width: 10em;
+  height: 3em;
+  margin-bottom: 1%;
+  margin-right: 3%;
+  margin-top: none;
+}
+
+.dropdownButt
+{
+  color: white;
+  padding: 0px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+  height: inherit;
+  width: inherit;
+  background: tomato;  /* fallback for old browsers */
+}
+
+.dropdownButt:hover, .dropdownButt:focus
+{
+  background-color: #eb4000;
+}
+
+html
+{
+  width: 100%;
+  height: 100%;
+}
+
+body
+{
+  width: 99%;
+  height: 98%;
+  background: rgb(245, 245, 245);
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-weight: lighter;
+}
+
+.menuContainer
+{
+  height: 3em;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: none;
+  margin-right: none;
+  margin-left: none;
+  padding-left: 0px;
+}
+
+h2
+{
+  line-height: 1em;
+  font-size: 200%;
+  margin-bottom: none;
+}
+
+h3
+{
+  line-height: 1em;
+  font-size: 125%;
+}
+
+span
+{
+  font-weight: bold;
+}
+
+#history:hover, #howToPlay:hover, #uiGuide:hover
+{
+  animation: backGroundAnimation;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+  animation-direction: alternate;
+}
+
+
+@-webkit-keyframes backGroundAnimation
+{
+  0%
+  {
+    background-color: rgba(240, 255, 255, 0.8);
+  }
+  100%
+  {
+    background-color: rgba(240, 255, 250, 0.4);
+  }
+}
+
+@-moz-keyframes backGroundAnimation
+{
+  0%
+  {
+    background-color: rgba(240, 255, 255, 0.8);
+  }
+  100%
+  {
+    background-color: rgba(240, 255, 250, 0.4);
+  }
+}

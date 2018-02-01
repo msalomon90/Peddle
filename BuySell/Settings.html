@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8" />
+	<title>Edit Account Details!</title>
+	<link rel = "stylesheet" type = "text/css" href = "Settings.css">
+    <script type = "text/javascript" src = "Settings.js"></script>
+</head>
+
+<body onload="checkPrivilege()">
+
+	<!-- User details input conatiner -->
+  <div class="mainContainer">
+    <form>
+      <fieldset>
+				<div class = "heading">Account Details</div>
+        <input id = "usernameTextBox" class = "regularTextbox" type = "text"
+               placeholder = "Username " maxlength="30" disabled
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('saveSettings').click();}
+                            ">
+        <br> <br>
+				<!-- All inputs -->
+				<input id = "firstNameTextBox" class = "regularTextbox" type = "text"
+               placeholder = "First Name" maxlength="30"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('saveSettings').click();}
+                            else{
+                            document.getElementById('firstNameTextBox').classList.remove('errorTextbox');
+                            document.getElementById('firstNameTextBox').classList.add('regularTextbox');
+                            }">
+				<br> <br>
+				<input id = "lastNameTextBox" class = "regularTextbox" type = "text"
+               placeholder = "Last Name" maxlength="30"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('saveSettings').click();}
+                            else{
+                            document.getElementById('lastNameTextBox').classList.remove('errorTextbox');
+                            document.getElementById('lastNameTextBox').classList.add('regularTextbox');
+                            }">
+				<br> <br>
+				<input id = "emailTextBox" class = "regularTextbox" type = "text"
+               placeholder = "Email" maxlength="30"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('saveSettings').click();}
+                            else{
+                            document.getElementById('emailTextBox').classList.remove('errorTextbox');
+                            document.getElementById('emailTextBox').classList.add('regularTextbox');
+                            }">
+				<br> <br>
+        <textarea id = "addressTextBox" class = "regularTextarea"
+									name="Text1" cols="30" rows="3" maxlength="150"
+									placeholder="Address"></textarea>
+				<br> <br>
+				<input id = "passwordTextBox" class = "regularTextbox" type = "password"
+               placeholder = "New Password" maxlength="30"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('saveSettings').click();}
+                            else{
+                            document.getElementById('passwordTextBox').classList.remove('errorTextbox');
+                            document.getElementById('passwordTextBox').classList.add('regularTextbox');
+                            }">
+				<br> <br>
+				<input id = "confirmPasswordTextBox" class = "regularTextbox" type = "password"
+               placeholder = "Confirm New Password" maxlength="30"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('saveSettings').click();}
+                            else{
+                            document.getElementById('confirmPasswordTextBox').classList.remove('errorTextbox');
+                            document.getElementById('confirmPasswordTextBox').classList.add('regularTextbox');
+                            }">
+      </fieldset>
+    </form>
+    <br>
+		<!-- Save settings button -->
+		<button id = "saveSettings"  class = "createButton"
+                onclick = "saveSettings()">
+            <span >Save </span>
+    </button>
+    <br> <br>
+    <div class = "divider"><span class="word">or</span></div>
+    <br>
+		<!-- Cancel settings button -->
+		<button id = "cancelButt" class = "submitButton"
+                onclick = "location.href = 'MainPage.html'">
+            <span >Cancel  </span>
+    </button>
+  </div>
+</body>
+</html>

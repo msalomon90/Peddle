@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8" />
+	<title>HomePage!</title>
+	<link rel = "stylesheet" type = "text/css" href = "MainPage.css">
+    <script type = "text/javascript" src = "MainPage.js"></script>
+</head>
+
+<!-- Main page will check if user is logged in before they can access the page -->
+<body onload="checkPrivilege()"
+			onkeydown = "if (event.keyCode == 38){
+									 document.getElementById('prevPost').click();}
+									 if (event.keyCode == 40){
+						 			 document.getElementById('nextPost').click();}"
+									 >
+	<div class = "menuBar">
+		<!-- Top menu bar navigation of main page -->
+		<div class = "menuLeftSide">
+			<!-- Sets session storage last viewed to -1 so it starts at the most recent post -->
+			<div id="homeButt" class = "menuItem" onclick="sessionStorage.setItem('lastPostViewed',-1);location.reload();">
+				Home
+			</div>
+			<div id="newPost" class="menuItem" onclick="newPost()">
+				New Post
+			</div>
+			<div id="editPost" class="menuItem menuHide" onclick="editPost()">
+				Edit Post
+			</div>
+			<div id="deletePost" class="menuItem menuHide" onclick="deletePost()">
+				Delete Post
+			</div>
+		</div>
+		<!-- Right side of top menu -->
+		<div class = "menuRightSide">
+			<div class = "searchContainer">
+				<!-- Search bar and search icon(source: iconfinder.com) -->
+				<input id="searchTextBox" class="searchBar" type="text" placeholder="Search" onkeydown = "if (event.keyCode == 13){
+										 document.getElementById('searchBtn').click();}"/>
+				<button id="searchBtn" class = "searchbutton" onclick="searchPost()">
+					<?xml version="1.0" ?><svg height="25px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#ffffff" id="icon-111-search"><path d="M19.4271164,21.4271164 C18.0372495,22.4174803 16.3366522,23 14.5,23 C9.80557939,23 6,19.1944206 6,14.5 C6,9.80557939 9.80557939,6 14.5,6 C19.1944206,6 23,9.80557939 23,14.5 C23,16.3366522 22.4174803,18.0372495 21.4271164,19.4271164 L27.0119176,25.0119176 C27.5621186,25.5621186 27.5575313,26.4424687 27.0117185,26.9882815 L26.9882815,27.0117185 C26.4438648,27.5561352 25.5576204,27.5576204 25.0119176,27.0119176 L19.4271164,21.4271164 L19.4271164,21.4271164 Z M14.5,21 C18.0898511,21 21,18.0898511 21,14.5 C21,10.9101489 18.0898511,8 14.5,8 C10.9101489,8 8,10.9101489 8,14.5 C8,18.0898511 10.9101489,21 14.5,21 L14.5,21 Z" id="search"/></g></g></svg></button>
+			</div>
+			<!-- Sort by divs -->
+			<div id="sortDate" class="menuItem menuHide" onclick="sortBy('date')">
+				Sort By Date
+			</div>
+			<div id="sortPrice" class="menuItem menuHide" onclick="sortBy('price')">
+				Sort By Price
+			</div>
+			<div id="settings" class="menuItem" onclick="location.href = 'Settings.html'">
+				Settings
+			</div>
+			<div id="logout" class="menuItem" onclick="logout()">
+				Sign out
+			</div>
+		</div>
+	</div>
+	<!-- Button to navigate to previous post -->
+	<div id="pageDiv" class="pageDiv">
+		<div id = "prevPost" class = "prevButton" onclick = "navigateTo('prev')">
+			<span></span>
+		</div>
+		<!-- Holds the post image -->
+		<div id="no" class="itemContainer">
+			<div id="imgContainer" class="imgLeft">
+				<img id="postImage" onclick="showImage()"/>
+				<iframe id="dsfdsf" width="560" height="315" allowfullscreen frameborder="0"></iframe>
+				<div id="myModal" class="modal">
+				  <span id = "closemodal" class="close" onclick = "closeSpan()">×</span>
+				  <img class="modal-content" id="img01"/>
+				</div>
+			</div>
+			<!-- Holds Item info -->
+			<div id="itemSideContainer" class="itemSide">
+				<div id="itemDetailContainer" class="itemDetail">
+					<div id="postTitleBox">
+					</div>
+					<div id="postPrice">
+					</div>
+					<div id="posterInfo">
+						Posted by: <span id="postUsername"></span> on <span id="postDate"></span>
+					</div>
+					<div id="itemInfo">
+						<span id="itemInfo1"></span>
+						<span id="itemInfo2"></span>
+						<span id="itemInfo3"></span>
+					</div>
+					<div id="postDescription">
+					</div>
+				</div>
+				<!-- Holds post comments -->
+				<div id="comment" class="commentContainer" >
+					<table id="commentTable">
+					</table>
+					<div>
+						<textarea id="newComment" cols="40" rows="3" maxlength="140" placeholder="Enter your comment here"></textarea>
+						<br>
+						<button id="commentBtn" onclick="addComment()">
+							<span>Submit Comment</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Button to navigate to the next post -->
+		<div id = "nextPost" class = "nextButton" onclick = "navigateTo('next')">
+			<span></span>
+		</div>
+	</div>
+</body>
+</html>

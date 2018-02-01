@@ -1,0 +1,242 @@
+/*
+  Sanjay Soundarajan
+  109146095
+  Follow the development of this project: https://github.com/megasanjay/CSCI130/tree/master/Gomoku
+*/
+
+html
+{
+  width: 97%;
+  height: 97%;
+}
+
+body
+{
+  width: 97%;
+  height: 97%;
+  vertical-align: middle;
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 500% 500%;
+}
+
+body
+{
+  -webkit-animation: rainbow;
+  -webkit-animation-duration: 50s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation: rainbow;
+  -moz-animation-duration: 50s;
+  -moz-animation-iteration-count: infinite;
+  cursor: pointer;
+}
+
+.mainText
+{
+  left: 0;
+  position: absolute;
+  text-align: center;
+  margin-top: -150px;
+  top: 50%;
+  width: 95%;
+  margin-left: 2%;
+}
+
+.titleText
+{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-weight: 900;
+  font-size: 800%;
+  position: relative;
+  text-shadow: 2px 2px 13px rgba(255, 255, 255, 1);
+}
+
+.titleText
+{
+  -webkit-animation: slideInLeft, bounce;
+  -webkit-animation-iteration-count: 1, infinite;
+  -webkit-animation-duration: 2s, 1.5s;
+  -webkit-animation-timing-function:ease-in-out, linear;
+  -webkit-animation-delay: 0s, 2s;
+  -webkit-animation-direction: normal, normal;
+  -moz-animation: slideInLeft, bounce;
+  -moz-animation-iteration-count: 1, infinite;
+  -moz-animation-duration: 2s, 1.5s;
+  -moz-animation-timing-function:ease-in-out, linear;
+  -moz-animation-delay: 0s, 2s;
+  -moz-animation-direction: normal, normal;
+}
+
+
+.instructionText
+{
+  position: relative;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-weight: 900;
+  font-size: 200%;
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 1);
+}
+
+.instructionText
+{
+  -webkit-animation: slideInRight, pulse;
+  -webkit-animation-duration: 2s, 5s;
+  -webkit-animation-iteration-count: 1, infinite;
+  -webkit-animation-timing-function: linear, ease-in-out ;
+  -webkit-animation-delay: 0s, 2s;
+  -moz-animation: slideInRight, pulse;
+  -moz-animation-duration: 2s, 5s;
+  -moz-animation-iteration-count: 1, infinite;
+  -moz-animation-timing-function: linear, ease-in-out ;
+  -moz-animation-delay: 0s, 2s;
+}
+
+@-webkit-keyframes rainbow {
+    0%
+    {
+      background-position:0% 85%;
+    }
+    50%
+    {
+      background-position:98% 19%;
+    }
+    100%
+    {
+      background-position:0% 85%;
+    }
+}
+
+@-moz-keyframes rainbow {
+    0%
+    {
+      background-position:0% 85%;
+    }
+    50%
+    {
+      background-position:98% 19%;
+    }
+    100%
+    {
+      background-position:0% 85%;
+    }
+}
+
+@-webkit-keyframes slideInLeft {
+  0% {
+    transform: translate3d(-50px, 0, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes slideInLeft {
+  0% {
+    transform: translate3d(-50px, 0, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideInRight {
+  0% {
+    transform: translate3d(50px, 0, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+}@-moz-keyframes slideInRight {
+  0% {
+    transform: translate3d(50px, 0, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@-moz-keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@-webkit-keyframes bounce
+{
+  0%, 20%, 53%, 80%, 100%
+  {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0,0,0);
+  }
+  40%, 43%
+  {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -30px, 0);
+  }
+  70%
+  {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -15px, 0);
+  }
+  90%
+  {
+    transform: translate3d(0,-4px,0);
+  }
+}
+
+@-moz-keyframes bounce
+{
+  0%, 20%, 53%, 80%, 100%
+  {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0,0,0);
+  }
+  40%, 43%
+  {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -30px, 0);
+  }
+  70%
+  {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -15px, 0);
+  }
+  90%
+  {
+    transform: translate3d(0,-4px,0);
+  }
+}

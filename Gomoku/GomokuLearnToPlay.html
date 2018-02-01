@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!--
+  Sanjay Soundarajan
+  109146095
+  Follow the development of this project: 
+  https://github.com/megasanjay/CSCI130/tree/master/Gomoku
+-->
+
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8" />
+	<title>Play Gomoku!</title>
+	<link rel = "stylesheet" type = "text/css" href = "GomokuLearnToPlay.css">
+</head>
+
+<body>
+  <header>
+    <div class = "menuContainer">
+      <div class = "dropdown" role = "navigation">
+        <button class = "dropdownButt" title = "Visit other links"
+              role = "button" tabIndex = "1"
+              onclick = "location.href = 'GomokuHomePage.html'">Home Page</button>
+      </div>
+
+      <div class = "dropdown" role = "navigation">
+        <button class = "dropdownButt" title = "Visit other links"
+              role = "button" tabIndex = "2"
+              onclick = "location.href = 'GomokuPlayBoard.html'">Play A Game</button>
+      </div>
+
+      <div class = "dropdown" role = "navigation">
+        <button class = "dropdownButt" title = "Visit other links"
+              role = "button" tabIndex = "3"
+              onclick = "location.href = 'GomokuAboutMe.html'">Meet The Creator</button>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <article id = "history" tabIndex = "4">
+    <h2>History</h2>
+      <p>
+        Gomoku is a Japanese traditional logic board game related with the game of Gobang (which uses the same board and pieces), and it’s also known in English-speaking countries as Five in a Row. The name "Gomoku" is from the Japanese language, in which it is referred to as gomokunarabe (五目並べ). ‘Go’ means five, ‘moku’ is a counter word for pieces and ‘narabe’ means line-up. The game is also popular in Korea, where it is called omok (오목(五目)) which has the same structure and origin as the Japanese name. It is said to have originated in China with the name Wu Zi Qi (五子棋). In the nineteenth century, the game was introduced to Britain where it was known as Go Bang or Pegity, said to be a corruption of Japanese goban, said to be adopted from Chinese k'i pan (qí bàn) 'chess-board'.
+        <br>
+        It seems that this ancient strategy board game is more than 4000 years old and that its rules were developed in ancient China. But we can find a similar board game with same rules, also in the findings of ancient Greece and pre-Columbian civilizations of America.
+        <br>
+        Considered by many to be one of the world’s greatest strategy games, the Gomoku board game was brought to Japan around 270 BC, with the name of Kakugo (which means something like “five steps” in Japanese). Soon it became a national pastime, at least is described in this way by a book of 100 AD and it seems that every Japanese of the eighteenth century knew its rules. Japanese chronicles show that at the time of the late 17th and early 18th century Gomoku Narabe was at its height of popularity, being played by young and old alike. The first modern volume on this board game - called Kakugo - appeared in 1858.
+        <br>
+        The abstract Gomoku game is a classic board game of alignment, like the modern Connect four, and has also many variants, called with different names. The Gomoku board game was introduced into Europe around 1885 and became known in England by the name of Spoil Five, another popular variant of this classic board game in which the pieces are played in the boxes instead of in the intersections.
+        <br>
+        Gomoku has a rich historical and cultural heritage, furnishes an accessible 'jumping-off' point into an interesting area of mathematics, and is playable by even children of age 4.
+        Besides, it’s darn fun!
+        <br>
+        Information from <a href = "http://gomokuworld.com/gomoku/1">here</a>.
+      </p>
+    </article>
+
+    <article id = howToPlay tabIndex = "5">
+    <h2>How to play</h2>
+      <h3>All you have to do is to click an empty box on the grid!!!</h3>
+      <ul>
+        <li>The main goal of this game is to place 5 pieces on the grid such that there are 5 of your pieces in a row in either the vertical, horizontal or diagonal direction.</li>
+        <li> While you are trying to create your line of 5 pieces, you must also be wary of the opponent trying to do the same. Be sure to block any of his/her/its attempts to win.</li>
+        <li>Player ❌ always goes first. If you are playing against the computer, you always go first.</li>
+        <li>The timer will start the moment a new blank grid is generated.</li>
+      </ul>
+    </article>
+
+    <article id = "uiGuide" tabIndex = "6">
+    <h2>User Interface Outline</h2>
+      <ul>
+        <li> <span>New Game</span> - A dropdown button for you to choose who you want to play against.</li>
+        <ul>
+          <li> <span>You vs. The Machine</span> - Play against the AI created to go against you.</li>
+          <li> <span>You vs. Another You</span> - Play against another player. Both of you get turns to select where you want to place your piece.</li>
+          <li> <span>Reset the grid</span> - Clear the grid, reset the timers, 'turn' and 'piece' counters. The website will remember you last choice of game mode for you. </li>
+        </ul>
+        <li><span>Sizes</span> -  A dropdown button for you choose the size of the grid you want to play on.</li>
+        <ul>
+          <li> <span>15 x 15</span> - Play on a 15 squares by 15 squares grid table.</li>
+          <li> <span>19 x 19</span> - Play on a 19 squares by 19 squares grid table.</li>
+        </ul>
+        <li> <span>Grid Color</span> -  A dropdown button for you choose from a massive variety of grid background colors that suit your taste.</li>
+        <li> <span>Player 'X' Color</span> -  A dropdown button for you choose from a massive variety of colors to represent Player One's pieces.</li>
+        <li> <span>Player 'O' Color</span> -  A dropdown button for you choose from a massive variety of colors to represent Player Two's pieces.</li>
+        <li> <span>Suggest a move</span> - If you are stuck with your next move and are as indecisive as the creator of this website is; this button is for you. It uses the same algorithm used by the AI, to suggest a move for you. You are free to pick a different spot from the one suggested if you feel like the suggestion is a terrible idea.</li>
+      </ul>
+    </article>
+  </section>
+</body>
+</html>

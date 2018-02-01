@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8" />
+	<title>Post Details!</title>
+	<link rel = "stylesheet" type = "text/css" href = "NewPost.css">
+    <script type = "text/javascript" src = "NewPost.js"></script>
+    <link type='text/css' href='http://fonts.googleapis.com/css?family=Lato:400,700' />
+</head>
+<body onload="checkPrivilege()">
+	<!-- New post input fields -->
+  <div class="mainContainer">
+    <form>
+      <fieldset>
+				<!-- All input fields -->
+        <input id = "titleTextBox" class = "regularTextbox" type = "text"
+               placeholder = "Title (Required)" maxlength="50"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('submitButt').click();}
+														else{
+                            document.getElementById('titleTextBox').classList.remove('errorTextbox');
+                            document.getElementById('titleTextBox').classList.add('regularTextbox');
+                            }">
+        <br> <br>
+        <textarea id = "descriptionTextBox" class = "regularTextarea"
+									name="Text1" cols="40" rows="5" maxlength="280"
+									placeholder="Post details"></textarea>
+        <br> <br>
+        <input id = "imageTextBox" class = "regularTextarea" type = "text"
+       placeholder = "Link To Image" maxlength="100"
+       onkeydown = "if (event.keyCode == 13){
+                    document.getElementById('submitButt').click();}
+                                                else{
+                    document.getElementById('imageTextBox').classList.remove('errorTextarea');
+                    document.getElementById('imageTextBox').classList.add('regularTextarea');
+                    }">
+        <br> <br>
+        <input id = "priceTextBox" class = "regularTextarea" type = "text"
+               placeholder = "Price (Required)" maxlength="7"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('submitButt').click();}
+                            else{
+                            document.getElementById('priceTextBox').classList.remove('errorTextarea');
+                            document.getElementById('priceTextBox').classList.add('regularTextarea');
+                            }">
+        <br> <br>
+				<!-- Post type radio buttons -->
+        <input type="radio" checked = "checked" value="radio1" id="r12" name="item2" hidden onchange="showform('radio1')">
+        <label class="radio circle" for="r12">
+          <span class="big">
+            <span class="small"></span>
+          </span>Book
+        </label>
+        <input type="radio" value="radio2" id="r22" name="item2" hidden onchange="showform('radio2')">
+        <label class="radio circle" for="r22">
+          <span class="big">
+            <span class="small"></span>
+          </span>Video
+        </label>
+      </fieldset>
+    </form>
+    <br>
+		<!-- Book details input fields -->
+    <form id = "bookform">
+      <textarea id = "bookTitleTextBox" class = "regularTextarea"
+									name="Text1" cols="30" rows="2"
+									placeholder="Title of the book (Required)" maxlength="30"
+									onkeydown = "if (event.keyCode == 13){
+	                             document.getElementById('submitButt').click();}
+	                             else{
+	                             document.getElementById('bookTitleTextBox').classList.remove('errorTextarea');
+	                             document.getElementById('bookTitleTextBox').classList.add('regularTextarea');
+	                             }"></textarea>
+      <br> <br>
+      <textarea id = "bookAuthorTextBox" class = "regularTextarea"
+									name="Text1" cols="30" rows="2" maxlength="50"
+									placeholder="Author(s) of the book (Required)"
+									onkeydown = "if (event.keyCode == 13){
+	                             document.getElementById('submitButt').click();}
+	                             else{
+	                             document.getElementById('bookAuthorTextBox').classList.remove('errorTextarea');
+	                             document.getElementById('bookAuthorTextBox').classList.add('regularTextarea');
+	                             }"></textarea>
+      <br> <br>
+      <input id = "bookPagesTextBox" class = "regularTextarea" type = "text"
+               placeholder = "No. of pages (Required)" maxlength="4"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('submitButt').click();}
+                            else{
+                            document.getElementById('bookPagesTextBox').classList.remove('errorTextarea');
+                            document.getElementById('bookPagesTextBox').classList.add('regularTextarea');
+                            }">
+      <br> <br>
+    </form>
+		<!-- Video details input fields -->
+    <form id = "videoform">
+			<textarea id = "VideoTitleTextBox" class = "regularTextarea"
+									name="Text1" cols="30" rows="2" maxlength="30"
+									placeholder="Title of the video (Required)"></textarea>
+			<br> <br>
+			<label class = "durationdropdown" >Hours:</label>
+			<select name="videoHours" id = "videoHoursDropdown">
+			  <option value="0">0</option>
+			  <option value="1">1</option>
+				<option value="2">2</option>
+			  <option value="3">3</option>
+				<option value="4">4</option>
+			  <option value="5">5</option>
+				<option value="6">6</option>
+			  <option value="7">7</option>
+			  <option value="8">8</option>
+			  <option value="9">9</option>
+			  <option value="10">10</option>
+			</select>
+			<label class = "durationdropdown" >Minutes:</label>
+			<select name="videoMinutes" id = "videoMinutesDropdown">
+			  <option value="0">0</option>
+			  <option value="1">1</option>
+				<option value="2">2</option>
+			  <option value="3">3</option>
+				<option value="4">4</option>
+			  <option value="5">5</option>
+				<option value="6">6</option>
+			  <option value="7">7</option>
+			  <option value="8">8</option>
+			  <option value="9">9</option>
+			  <option value="10">10</option>
+			  <option value="11">11</option>
+			  <option value="12">12</option>
+			  <option value="13">13</option>
+			  <option value="14">14</option>
+			  <option value="15">15</option>
+			  <option value="16">16</option>
+			  <option value="17">17</option>
+			  <option value="18">18</option>
+			  <option value="19">19</option>
+				<option value="20">20</option>
+			  <option value="21">21</option>
+			  <option value="22">22</option>
+			  <option value="23">23</option>
+			  <option value="24">24</option>
+			  <option value="25">25</option>
+			  <option value="26">26</option>
+			  <option value="27">27</option>
+			  <option value="28">28</option>
+			  <option value="29">29</option>
+				<option value="30">30</option>
+			  <option value="31">31</option>
+			  <option value="32">32</option>
+			  <option value="33">33</option>
+			  <option value="34">34</option>
+			  <option value="35">35</option>
+			  <option value="36">36</option>
+			  <option value="37">37</option>
+			  <option value="38">38</option>
+			  <option value="39">39</option>
+				<option value="40">40</option>
+			  <option value="41">41</option>
+			  <option value="42">42</option>
+			  <option value="43">43</option>
+			  <option value="44">44</option>
+			  <option value="45">45</option>
+			  <option value="46">46</option>
+			  <option value="47">47</option>
+			  <option value="48">48</option>
+			  <option value="49">49</option>
+				<option value="50">50</option>
+			  <option value="51">51</option>
+			  <option value="52">52</option>
+			  <option value="53">53</option>
+			  <option value="54">54</option>
+			  <option value="55">55</option>
+			  <option value="56">56</option>
+			  <option value="57">57</option>
+			  <option value="58">58</option>
+			  <option value="59">59</option>
+			</select>
+			<label class = "durationdropdown" >Seconds:</label>
+			<select name="videoSeconds" id = "videoSecondsDropdown">
+			  <option value="0">0</option>
+			  <option value="1">1</option>
+				<option value="2">2</option>
+			  <option value="3">3</option>
+				<option value="4">4</option>
+			  <option value="5">5</option>
+				<option value="6">6</option>
+			  <option value="7">7</option>
+			  <option value="8">8</option>
+			  <option value="9">9</option>
+			  <option value="10">10</option>
+			  <option value="11">11</option>
+			  <option value="12">12</option>
+			  <option value="13">13</option>
+			  <option value="14">14</option>
+			  <option value="15">15</option>
+			  <option value="16">16</option>
+			  <option value="17">17</option>
+			  <option value="18">18</option>
+			  <option value="19">19</option>
+				<option value="20">20</option>
+			  <option value="21">21</option>
+			  <option value="22">22</option>
+			  <option value="23">23</option>
+			  <option value="24">24</option>
+			  <option value="25">25</option>
+			  <option value="26">26</option>
+			  <option value="27">27</option>
+			  <option value="28">28</option>
+			  <option value="29">29</option>
+				<option value="30">30</option>
+			  <option value="31">31</option>
+			  <option value="32">32</option>
+			  <option value="33">33</option>
+			  <option value="34">34</option>
+			  <option value="35">35</option>
+			  <option value="36">36</option>
+			  <option value="37">37</option>
+			  <option value="38">38</option>
+			  <option value="39">39</option>
+				<option value="40">40</option>
+			  <option value="41">41</option>
+			  <option value="42">42</option>
+			  <option value="43">43</option>
+			  <option value="44">44</option>
+			  <option value="45">45</option>
+			  <option value="46">46</option>
+			  <option value="47">47</option>
+			  <option value="48">48</option>
+			  <option value="49">49</option>
+				<option value="50">50</option>
+			  <option value="51">51</option>
+			  <option value="52">52</option>
+			  <option value="53">53</option>
+			  <option value="54">54</option>
+			  <option value="55">55</option>
+			  <option value="56">56</option>
+			  <option value="57">57</option>
+			  <option value="58">58</option>
+			  <option value="59">59</option>
+			</select>
+
+      <br> <br>
+			<!-- Genre drop down menu -->
+			<label class = "genredropdown" >Genre:</label>
+			<select name="genres" id = "videoGenreDropdown">
+			  <option value="Absurdist" selected>Absurdist</option>
+			  <option value="Action">Action</option>
+			  <option value="Adult">Adult</option>
+			  <option value="Adventure">Adventure</option>
+			  <option value="Comedy">Comedy</option>
+				<option value="Crime">Crime</option>
+			  <option value="Drama">Drama</option>
+			  <option value="Fantasy">Fantasy</option>
+			  <option value="Historical">Historical</option>
+				<option value="Historical Fiction">Historical Fiction</option>
+			  <option value="Horror">Horror</option>
+			  <option value="Magical Realism">Magical Realism</option>
+			  <option value="Mystery">Mystery</option>
+				<option value="Paranoid">Paranoid</option>
+			  <option value="Philosophical">Philosophical</option>
+			  <option value="Political">Political</option>
+			  <option value="Romance">Romance</option>
+				<option value="Saga">Saga</option>
+			  <option value="Satire">Satire</option>
+			  <option value="Science Fiction">Science Fiction</option>
+			  <option value="Slice of Life">Slice of Life</option>
+			  <option value="Speculative">Speculative</option>
+			  <option value="Thriller">Thriller</option>
+			  <option value="Urban">Urban</option>
+			  <option value="Western">Western</option>
+				<option value="Other">Other</option>
+			</select>
+    </form>
+    <br>
+		<!-- Submit Post button -->
+    <button id = "submitButt" class = "submitButton"
+                onclick = "submit()">
+            <span >Submit Post</span>
+    </button>
+    <br> <br>
+    <div class = "divider"><span class="word">or</span></div>
+    <br>
+		<!-- Cancel Post Button -->
+    <button id = "cancelButt"  class = "createButton"
+                onclick = "location.href = 'MainPage.html'">
+            <span > &nbsp;&nbsp;Cancel&nbsp;&nbsp;</span>
+    </button>
+  </div>
+</body>
+</html>

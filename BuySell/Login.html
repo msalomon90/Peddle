@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8" />
+	<title>Login!</title>
+	<link rel = "stylesheet" type = "text/css" href = "Login.css">
+    <script type = "text/javascript" src = "Login.js"></script>
+</head>
+
+<body onload = "sessionStorage.clear();">
+  <div class="mainContainer">
+    <form>
+      <fieldset> <!-- Username Input -->
+        <input id = "usernameTextBox" class = "regularTextbox" type = "text" autofocus="autofocus"
+               placeholder = "Username " maxlength="30"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('submitButt').click();}
+                            else{
+                            document.getElementById('usernameTextBox').classList.remove('errorTextbox');
+                            document.getElementById('usernameTextBox').classList.add('regularTextbox');
+                            }">
+        <br> <br><!-- Password Input-->
+        <input id = "passwordTextBox" class = "regularTextbox" type = "password"
+               placeholder = "Password" maxlength="30"
+               onkeydown = "if (event.keyCode == 13){
+                            document.getElementById('submitButt').click();}
+                            else{
+                            document.getElementById('passwordTextBox').classList.remove('errorTextbox');
+                            document.getElementById('passwordTextBox').classList.add('regularTextbox');
+                            }">
+      </fieldset>
+    </form>
+    <br><!-- Submit button calls the submit() function that will validate the user-->
+    <button id = "submitButt" class = "submitButton"
+                onclick = "submit()">
+            <span >Log In  </span>
+    </button>
+    <br> <br>
+    <div class = "divider"><span class="word">or</span></div>
+    <br>
+    <button id = "createAccount"  class = "createButton"
+                onclick = "location.href = 'CreateAccount.html'">
+            <span >Create New Account  </span>
+    </button>
+  </div>
+</body>
+</html>

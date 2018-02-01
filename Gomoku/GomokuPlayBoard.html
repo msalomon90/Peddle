@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<!--
+  Sanjay Soundarajan
+  109146095
+  Follow the development of this project: https://github.com/megasanjay/CSCI130/tree/master/Gomoku
+-->
+
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8" />
+	<title>Play Gomoku!</title>
+	<script type = "text/javascript" src = "GomokuPlayBoard.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "GomokuPlayBoard.css">
+</head>
+
+<body>
+  <div class = "menuContainer">
+    <div class = "dropdown" role = "navigation">
+      <button class = "dropdownButt" title = "Visit other links"
+              role = "button" tabIndex = "1"
+              onclick = "navigationDropDown()">Menu</button>
+      <div id = "navigationDropdown" class="clickContent">
+        <div id = "homePage"
+             role = "button" tabIndex = "2" aria-label = "Go to the home page"
+             onclick = "location.href = 'GomokuHomePage.html'"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('homePage').click();
+                          }">Home Page</div>
+        <div id = "learnToPlay"
+             role = "button" tabIndex = "3" aria-label = "Learn the rules of the game"
+             onclick = "location.href = 'GomokuLearnToPlay.html'"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('learnToPlay').click();
+                          }">How to play</div>
+        <div id = "aboutMe"
+             role = "button" tabIndex = "4"
+             onclick = "location.href = 'GomokuAboutMe.html'"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('aboutMe').click();
+                          }">Learn more about the creator</div>
+      </div>
+    </div>
+
+    <div class = "dropdown" role = "navigation">
+      <button class = "dropdownButt" title = "Choose who you want to play against"
+              role = "button" tabindex = "5"
+              onclick = "gameModeDropDown()">New Game</button>
+      <div id = "gameModeDropdown" class = "clickContent">
+        <div id = "compv1" onclick = "gameModeFunction(1)"
+             role = "button" tabIndex = "6" aria-label = "Play versus the computer"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('compv1').click();
+                          }">You vs. The Machine</div>
+        <div id = "onev1" onclick = "gameModeFunction(2)"
+             role = "button" tabIndex = "7" aria-label = "Play versus another human player "
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('onev1').click();
+                          }">You vs. Another You</div>
+        <div id = "gridReset" onclick = "gameModeFunction(3)"
+             role = "button" tabIndex = "8"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('gridReset').click();
+                          }">Reset The Grid</div>
+      </div>
+    </div>
+
+    <div class = "dropdown" role = "navigation">
+      <button class = "dropdownButt" title = "Choose the size of the grid you wannt to play on"
+              role = "button" tabIndex = "9"
+              onclick = "sizeDropDown()">Sizes</button>
+      <div id = "sizeDropdown" class="clickContent">
+        <div id = "x15" onclick = "resizeTable(15)"
+             role = "button" tabIndex = "10" aria-label = "Play on a 15 by 15 grid"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('x15').click();
+                          }">15 x 15</div>
+        <div id = "x19" onclick = "resizeTable(19)"
+             role = "button" tabIndex = "11" aria-label = "play on a 19 by 19 grid"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('x19').click();
+                          }">19 x 19</div>
+      </div>
+    </div>
+
+    <div class = "dropdown" role = "navigation">
+      <button class = "dropdownButt" title = "Choose the color of the grid"
+              role = "button" tabIndex = "12"
+              onclick = "gridColorDropDown()">Grid Color</button>
+      <div id = "gridcolorDropdown" class = "clickContent">
+        <div id = "gdpink" class = "colorDeepPink colorDropdown"
+             role = "button" tabIndex = "13" aria-label = "Make the grid Deep Pink"
+             onclick = "changeGridColor('DeepPink')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                          document.getElementById('gdpink').click();
+                          }"> Deep Pink </div>
+        <div id = "glSalmon" class = "colorLightSalmon colorDropdown"
+             role = "button" tabIndex = "14" aria-label = "Make the grid Light Salmon"
+             onclick = "changeGridColor('LightSalmon')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('glSalmon').click();
+                        }"> Light Salmon </div>
+        <div id = "gsalmon" class = "colorSalmon colorDropdown"
+             role = "button" tabIndex = "15" aria-label = "Make the grid Salmon"
+             onclick = "changeGridColor('Salmon')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gsalmon').click();
+                        }"> Salmon </div>
+        <div id = "glcoral" class = "colorLightCoral colorDropdown"
+             role = "button" tabIndex = "16" aria-label = "Make the grid Light Coral"
+             onclick = "changeGridColor('LightCoral')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('glcoral').click();
+                        }"> Light Coral </div>
+        <div id = "gcrimson" class = "colorCrimson colorDropdown"
+             role = "button" tabIndex = "17" aria-label = "Make the grid Crimson"
+             onclick = "changeGridColor('Crimson')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gcrimson').click();
+                        }"> Crimson </div>
+        <div id = "gored" class = "colorOrangeRed colorDropdown"
+             role = "button" tabIndex = "18" aria-label = "Make the grid Orange Red"
+             onclick = "changeGridColor('OrangeRed')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gored').click();
+                        }"> Orange Red </div>
+        <div id = "gtomato" class = "colorTomato colorDropdown"
+             role = "button" tabIndex = "19" aria-label = "Make the grid Tomato"
+             onclick = "changeGridColor('Tomato')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gtomato').click();
+                        }"> Tomato </div>
+        <div id = "gorange" class = "colorOrange colorDropdown"
+             role = "button" tabIndex = "20" aria-label = "Make the grid Orange"
+             onclick = "changeGridColor('Orange')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gorange').click();
+                        }"> Orange </div>
+        <div id = "gyellow" class = "colorYellow colorDropdown"
+             role = "button" tabIndex = "21" aria-label = "Make the grid Yellow"
+             onclick = "changeGridColor('Yellow')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gyellow').click();
+                        }"> Yellow </div>
+        <div id = "gppuff" class = "colorPeachPuff colorDropdown"
+             role = "button" tabIndex = "22" aria-label = "Make the grid Peach Puff"
+             onclick = "changeGridColor('PeachPuff')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gppuff').click();
+                        }"> Peach Puff </div>
+        <div id = "ggold" class = "colorGold colorDropdown"
+             role = "button" tabIndex = "23" aria-label = "Make the grid Gold"
+             onclick = "changeGridColor('Gold')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gppuff').click();
+                        }"> Gold </div>
+        <div id = "ggoldenrod" class = "colorGoldenrod colorDropdown"
+             role = "button" tabIndex = "24" aria-label = "Make the grid Goldenrod"
+             onclick = "changeGridColor('Goldenrod')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('ggoldenrod').click();
+                        }"> Goldenrod </div>
+        <div id = "glime" class = "colorLime colorDropdown"
+             role = "button" tabIndex = "25" aria-label = "Make the grid Lime"
+             onclick = "changeGridColor('Lime')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('glime').click();
+                        }"> Lime </div>
+        <div id = "gmaquamarine" class = "colorMediumAquamarine colorDropdown"
+             role = "button" tabIndex = "26" aria-label = "Make the grid Medium Aquamarine"
+             onclick = "changeGridColor('MediumAquamarine')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gmaquamarine').click();
+                        }"> Medium Aquamarine </div>
+        <div id = "gaqua" class = "colorAqua colorDropdown"
+             role = "button" tabIndex = "27" aria-label = "Make the grid Aqua"
+             onclick = "changeGridColor('Aqua')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gaqua').click();
+                        }"> Aqua </div>
+        <div id = "gaquamrine" class = "colorAquamarine colorDropdown"
+             role = "button" tabIndex = "28" aria-label = "Make the grid Aquamarine"
+             onclick = "changeGridColor('Aquamarine')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gaquamrine').click();
+                        }"> Aquamarine </div>
+        <div id = "gmturquoise" class = "colorMediumTurquoise colorDropdown"
+             role = "button" tabIndex = "29" aria-label = "Make the grid Medium Turquoise"
+             onclick = "changeGridColor('MediumTurquoise')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gmturquoise').click();
+                        }"> Medium Turquoise </div>
+        <div id = "gsblue" class = "colorSkyBlue colorDropdown"
+             role = "button" tabIndex = "30" aria-label = "Make the grid Sky Blue"
+             onclick = "changeGridColor('SkyBlue')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gsblue').click();
+                        }"> Sky Blue </div>
+        <div id = "gdsblue" class = "colorDeepSkyBlue colorDropdown"
+             role = "button" tabIndex = "31" aria-label = "Make the grid Deep Sky Blue"
+             onclick = "changeGridColor('DeepSkyBlue')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gdsblue').click();
+                        }"> Deep Sky Blue </div>
+        <div id = "gviolet" class = "colorViolet colorDropdown"
+             role = "button" tabIndex = "32" aria-label = "Make the grid Violet"
+             onclick = "changeGridColor('Violet')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gviolet').click();
+                        }"> Violet </div>
+        <div id = "gmagenta" class = "colorMagenta colorDropdown"
+             role = "alert" tabIndex = "33" aria-label = "Make the grid Magenta"
+             onclick = "changeGridColor('Magenta')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gmagenta').click();
+                        }"> Magenta </div>
+        <div id = "gazure" class = "colorAzure colorDropdown"
+             role = "button" tabIndex = "34" aria-label = "Make the grid Azure"
+             onclick = "changeGridColor('Azure')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gazure').click();
+                        }"> Azure </div>
+        <div id = "glblush" class = "colorLavenderBlush colorDropdown"
+             role = "button" tabIndex = "35" aria-label = "Make the grid Lavender Blush"
+             onclick = "changeGridColor('LavenderBlush')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('glblush').click();
+                        }"> Lavender Blush </div>
+        <div id = "glgray" class = "colorLightGray colorDropdown"
+             role = "button" tabIndex = "36" aria-label = "Make the grid Light Gray"
+             onclick = "changeGridColor('LightGray')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('glgray').click();
+                        }"> Light Gray </div>
+        <div id = "gsgray" class = "colorSlateGray colorDropdown"
+             role = "button" tabIndex = "37" aria-label = "Make the grid Slate Gray"
+             onclick = "changeGridColor('SlateGray')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('gsgray').click();
+                        }"> Slate Gray </div>
+      </div>
+    </div>
+
+    <div class = "dropdown" role = "navigation">
+      <button class = "dropdownButt" title = "Choose the color of Player One's pieces"
+              role = "button" tabIndex = "38"
+              onclick = "playerOneColorDropDown()">Player 'X' Color</button>
+      <div id = "p1colorDropdown" class = "clickContent">
+        <div id = "p1dpink" class = "colorDeepPink colorDropdown"
+             role = "button" tabIndex = "39" aria-label = "Make player ones pieces Deep Pink"
+             onclick = "changeP1Color('DeepPink')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1dpink').click();
+                        }"> Deep Pink </div>
+        <div id = "p1lsalmon" class = "colorLightSalmon colorDropdown"
+             role = "button" tabIndex = "40" aria-label = "Make player ones pieces Light Salmon"
+             onclick = "changeP1Color('LightSalmon')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1lsalmon').click();
+                        }"> Light Salmon </div>
+        <div id = "p1salmon" class = "colorSalmon colorDropdown"
+             role = "button" tabIndex = "41" aria-label = "Make player ones pieces Salmon"
+             onclick = "changeP1Color('Salmon')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1salmon').click();
+                        }"> Salmon </div>
+        <div id = "p1lcoral" class = "colorLightCoral colorDropdown"
+             role = "button" tabIndex = "42" aria-label = "Make player ones pieces Light Coral"
+             onclick = "changeP1Color('LightCoral')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1lcoral').click();
+                        }"> Light Coral </div>
+        <div id = "p1crimson" class = "colorCrimson colorDropdown"
+             role = "button" tabIndex = "43" aria-label = "Make player ones pieces Crimson"
+             onclick = "changeP1Color('Crimson')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1crimson').click();
+                        }"> Crimson </div>
+        <div id = "p1ored" class = "colorOrangeRed colorDropdown"
+             role = "button" tabIndex = "44" aria-label = "Make player ones pieces Orange Red"
+             onclick = "changeP1Color('OrangeRed')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1ored').click();
+                        }"> Orange Red </div>
+        <div id = "p1tomato" class = "colorTomato colorDropdown"
+             role = "button" tabIndex = "45" aria-label = "Make player ones pieces Tomato"
+             onclick = "changeP1Color('Tomato')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1tomato').click();
+                        }"> Tomato </div>
+        <div id = "p1orange" class = "colorOrange colorDropdown"
+             role = "button" tabIndex = "46" aria-label = "Make player ones pieces Orange"
+             onclick = "changeP1Color('Orange')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1orange').click();
+                        }"> Orange </div>
+        <div id = "p1yellow" class = "colorYellow colorDropdown"
+             role = "button" tabIndex = "47" aria-label = "Make player ones pieces Yellow"
+             onclick = "changeP1Color('Yellow')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1yellow').click();
+                        }"> Yellow </div>
+        <div id = "p1ppuff" class = "colorPeachPuff colorDropdown"
+             role = "button" tabIndex = "48" aria-label = "Make player ones pieces Peach Puff"
+             onclick = "changeP1Color('PeachPuff')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1ppuff').click();
+                        }"> Peach Puff </div>
+        <div id = "p1gold" class = "colorGold colorDropdown"
+             role = "button" tabIndex = "49" aria-label = "Make player ones pieces Gold"
+             onclick = "changeP1Color('Gold')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1gold').click();
+                        }"> Gold </div>
+        <div id = "p1goldenrod" class = "colorGoldenrod colorDropdown"
+             role = "button" tabIndex = "50" aria-label = "Make player ones pieces Goldenrod"
+             onclick = "changeP1Color('Goldenrod')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1goldenrod').click();
+                        }"> Goldenrod </div>
+        <div id = "p1lime" class = "colorLime colorDropdown"
+             role = "button" tabIndex = "51" aria-label = "Make player ones pieces Lime"
+             onclick = "changeP1Color('Lime')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1lime').click();
+                        }"> Lime </div>
+        <div id = "p1maquamarine" class = "colorMediumAquamarine colorDropdown"
+             role = "button" tabIndex = "52"
+             aria-label = "Make player ones pieces Medium Aquamarine"
+             onclick = "changeP1Color('MediumAquamarine')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1maquamarine').click();
+                        }"> Medium Aquamarine </div>
+        <div id = "p1aqua" class = "colorAqua colorDropdown"
+             role = "button" tabIndex = "53" aria-label = "Make player ones pieces Aqua"
+             onclick = "changeP1Color('Aqua')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1aqua').click();
+                        }"> Aqua </div>
+        <div id = "p1aquamarine" class = "colorAquamarine colorDropdown"
+             role = "button" tabIndex = "54" aria-label = "Make player ones pieces Aquamarine"
+             onclick = "changeP1Color('Aquamarine')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1aquamarine').click();
+                        }"> Aquamarine </div>
+        <div id = "p1mturquoise" class = "colorMediumTurquoise colorDropdown"
+             role = "button" tabIndex = "55"
+             aria-label = "Make player ones pieces Medium Turquoise"
+             onclick = "changeP1Color('MediumTurquoise')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1mturquoise').click();
+                        }"> Medium Turquoise </div>
+        <div id = "p1sblue" class = "colorSkyBlue colorDropdown"
+             role = "button" tabIndex = "56" aria-label = "Make player ones pieces Sky Blue"
+             onclick = "changeP1Color('SkyBlue')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1sblue').click();
+                        }"> Sky Blue </div>
+        <div id = "p1dsblue" class = "colorDeepSkyBlue colorDropdown"
+             role = "button" tabIndex = "57"
+             aria-label = "Make player ones pieces Deep Sky Blue"
+             onclick = "changeP1Color('DeepSkyBlue')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1dsblue').click();
+                        }"> Deep Sky Blue </div>
+        <div id = "p1violet" class = "colorViolet colorDropdown"
+             role = "button" tabIndex = "58"
+             aria-label = "Make player ones pieces Deep Sky Blue"
+             onclick = "changeP1Color('Violet')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1violet').click();
+                        }"> Violet </div>
+        <div id = "p1magenta" class = "colorMagenta colorDropdown"
+             role = "button" tabIndex = "59" aria-label = "Make player ones pieces Magenta"
+             onclick = "changeP1Color('Magenta')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1magenta').click();
+                        }"> Magenta </div>
+        <div id = "p1azure" class = "colorAzure colorDropdown"
+             role = "button" tabIndex = "60" aria-label = "Make player ones pieces Azure"
+             onclick = "changeP1Color('Azure')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1azure').click();
+                        }"> Azure </div>
+        <div id = "p1lblush" class = "colorLavenderBlush colorDropdown"
+             role = "button" tabIndex = "61"
+             aria-label = "Make player ones pieces Lavender Blush"
+             onclick = "changeP1Color('LavenderBlush')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1lblush').click();
+                        }"> Lavender Blush </div>
+        <div id = "p1lgray" class = "colorLightGray colorDropdown"
+             role = "button" tabIndex = "62" aria-label = "Make player ones pieces Light Gray"
+             onclick = "changeP1Color('LightGray')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1lgray').click();
+                        }"> Light Gray </div>
+        <div id = "p1sgray" class = "colorSlateGray colorDropdown"
+             role = "button" tabIndex = "63" aria-label = "Make player ones pieces Slate Gray"
+             onclick = "changeP1Color('SlateGray')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p1sgray').click();
+                        }"> Slate Gray </div>
+      </div>
+    </div>
+
+    <div class = "dropdown" role = "navigation">
+      <button class = "dropdownButt" title = "Choose the color of Player Two's pieces"
+              role = "button" tabIndex = "64"
+              onclick = "playerTwoColorDropDown()">Player '〇' Color</button>
+      <div id = "p2colorDropdown" class= "clickContent">
+        <div id = "p2dpink" class = "colorDeepPink colorDropdown"
+             role ="button" tabIndex = "65" aria-label = "Make player twos pieces Deep Pink"
+             onclick = "changeP2Color('DeepPink')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2dpink').click();
+                        }"> Deep Pink </div>
+        <div id = "p2lsalmon" class = "colorLightSalmon colorDropdown"
+             role = "button" tabIndex = "66" aria-label = "Make player twos pieces Light Salmon"
+             onclick = "changeP2Color('LightSalmon')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2lsalmon').click();
+                        }"> Light Salmon </div>
+        <div id = "p2salmon" class = "colorSalmon colorDropdown"
+             role = "button" tabIndex = "67" aria-label = "Make player twos pieces Salmon"
+             onclick = "changeP2Color('Salmon')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2salmon').click();
+                        }"> Salmon </div>
+        <div id = "p2lcoral" class = "colorLightCoral colorDropdown"
+             role = "button" tabIndex = "68" aria-label = "Make player twos pieces Light Coral"
+             onclick = "changeP2Color('LightCoral')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2lcoral').click();
+                        }"> Light Coral </div>
+        <div id = "p2crimson" class = "colorCrimson colorDropdown"
+             role = "button" tabIndex = "69" aria-label = "Make player twos pieces Crimson"
+             onclick = "changeP2Color('Crimson')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2crimson').click();
+                        }"> Crimson </div>
+        <div id = "p2ored" class = "colorOrangeRed colorDropdown"
+             role = "button" tabIndex = "70" aria-label = "Make player twos pieces Gray"
+             onclick = "changeP2Color('OrangeRed')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2ored').click();
+                        }"> Orange Red </div>
+        <div id = "p2tomato" class = "colorTomato colorDropdown"
+             role = "button" tabIndex = "71" aria-label = "Make player twos pieces Tomato"
+             onclick = "changeP2Color('Tomato')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2tomato').click();
+                        }"> Tomato </div>
+        <div id = "p2orange" class = "colorOrange colorDropdown"
+             role = "button" tabIndex = "72" aria-label = "Make player twos pieces Orange"
+             onclick = "changeP2Color('Orange')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2orange').click();
+                        }"> Orange </div>
+        <div id = "p2yellow" class = "colorYellow colorDropdown"
+             role = "button" tabIndex = "73" aria-label = "Make player twos pieces Yellow"
+             onclick = "changeP2Color('Yellow')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2yellow').click();
+                        }"> Yellow </div>
+        <div id = "p2ppuff" class = "colorPeachPuff colorDropdown"
+             role = "button" tabIndex = "74" aria-label = "Make player twos pieces Peach Puff"
+             onclick = "changeP2Color('PeachPuff')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2ppuff').click();
+                        }"> Peach Puff </div>
+        <div id = "p2gold" class = "colorGold colorDropdown"
+             role = "button" tabIndex = "75" aria-label = "Make player twos pieces Gold"
+             onclick = "changeP2Color('Gold')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2gold').click();
+                        }"> Gold </div>
+        <div id = "p2goldenrod" class = "colorGoldenrod colorDropdown"
+             role = "button" tabIndex = "76" aria-label = "Make player twos pieces Goldenrod"
+             onclick = "changeP2Color('Goldenrod')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2goldenrod').click();
+                        }"> Goldenrod </div>
+        <div id = "p2lime" class = "colorLime colorDropdown"
+             role = "button" tabIndex = "77" aria-label = "Make player twos pieces Lime"
+             onclick = "changeP2Color('Lime')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2lime').click();
+                        }"> Lime </div>
+        <div id = "p2maquamarine" class = "colorMediumAquamarine colorDropdown"
+             role = "button" tabIndex = "78"
+             aria-label = "Make player twos pieces Medium Aquamarine"
+             onclick = "changeP2Color('MediumAquamarine')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2maquamarine').click();
+                        }"> Medium Aquamarine </div>
+        <div id = "p2aqua" class = "colorAqua colorDropdown"
+             role = "button" tabIndex = "79" aria-label = "Make player twos pieces Aqua"
+             onclick = "changeP2Color('Aqua')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2aqua').click();
+                        }"> Aqua </div>
+        <div id = "p2aquamarine" class = "colorAquamarine colorDropdown"
+             role = "button" tabIndex = "80" aria-label = "Make player twos pieces Aquamarine"
+             onclick = "changeP2Color('Aquamarine')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2aquamarine').click();
+                        }"> Aquamarine </div>
+        <div id = "p2mturquoise" class = "colorMediumTurquoise colorDropdown"
+             role = "button" tabIndex = "81"
+             aria-label = "Make player twos pieces Medium Turquoise"
+             onclick = "changeP2Color('MediumTurquoise')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2aquamarine').click();
+                        }"> Medium Turquoise </div>
+        <div id = "p2sblue" class = "colorSkyBlue colorDropdown"
+             role = "button" tabIndex = "82" aria-label = "Make player twos pieces Sky Blue"
+             onclick = "changeP2Color('SkyBlue')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2sblue').click();
+                        }"> Sky Blue </div>
+        <div id = "p2dsblue" class = "colorDeepSkyBlue colorDropdown"
+             role = "button" tabIndex = "83"
+             aria-label = "Make player twos pieces Deep Sky Blue"
+             onclick = "changeP2Color('DeepSkyBlue')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2dsblue').click();
+                        }"> Deep Sky Blue </div>
+        <div id = "p2violet" class = "colorViolet colorDropdown"
+             role = "button" tabIndex = "84" aria-label = "Make player twos pieces Violet"
+             onclick = "changeP2Color('Violet')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2violet').click();
+                        }"> Violet </div>
+        <div id = "p2magenta" class = "colorMagenta colorDropdown"
+             role = "button" tabIndex = "85" aria-label = "Make player twos pieces Magenta"
+             onclick = "changeP2Color('Magenta')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2magenta').click();
+                        }"> Magenta </div>
+        <div id = "p2azure" class = "colorAzure colorDropdown"
+             role = "button" tabIndex = "86" aria-label = "Make player twos pieces Azure"
+             onclick = "changeP2Color('Azure')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2azure').click();
+                        }"> Azure </div>
+        <div id = "p2lblush" class = "colorLavenderBlush colorDropdown"
+             role = "button" tabIndex = "87"
+             aria-label = "Make player twos pieces Lavender Blush"
+             onclick = "changeP2Color('LavenderBlush')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2lblush').click();
+                        }"> Lavender Blush </div>
+        <div id = "p2lgray" class = "colorLightGray colorDropdown"
+             role = "button" tabIndex = "88" aria-label = "Make player twos pieces Light Gray"
+             onclick = "changeP2Color('LightGray')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2lgray').click();
+                        }"> Light Gray </div>
+        <div id = "p2sgray" class = "colorSlateGray colorDropdown"
+             role = "button" tabIndex = "89" aria-label = "Make player twos pieces Slate Gray"
+             onclick = "changeP2Color('SlateGray')"
+             onkeydown = "if (event.keyCode == 13 || event.keyCode == 32){
+                        document.getElementById('p2sgray').click();
+                        }"> Slate Gray </div>
+      </div>
+    </div>
+
+    <div class = "dropdown" role = "navigation">
+      <button id = "suggestMove" class = "dropdownButt" title = "suggest my next move"
+              role = "button" tabIndex = "90"
+              onclick = "suggestMoveFunction()">Suggest a move</button>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class = "gameContainer">
+    <div class = "infoContainer">
+      <div class = "info"> Current game timer: <span id = "runningTimer">0 Seconds</span></div>
+      <div class = "info"> Number of turns: <span id = "turnCounter">0</span></div>
+      <div class = "info"> Number of pieces on the board: <span id = "totalPieceCounter">0</span></div>
+      <div class = "info"> Number of ❌ pieces on the board: <span id = "p1PieceCounter">0</span></div>
+      <div class = "info"> Number of ⭕️ pieces on the board: <span id = "p2PieceCounter">0</span></div>
+    </div>
+
+    <div class = "gridContainer">
+        <table id = "gTable"></table>
+    </div>
+  </div>
+</body>
+</html>

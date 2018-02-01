@@ -1,0 +1,225 @@
+html
+{
+  width: 100%;
+  height: 100%;
+}
+
+body
+{
+  width: 99%;
+  height: 98%;
+  background: rgb(245, 245, 245);
+  background: -webkit-linear-gradient(right, #8e9eab, #eef2f3);
+  background-size: contain;
+}
+
+.mainContainer
+{
+  left: 0;
+  position: relative;
+  text-align: center;
+  margin: auto;
+  margin-top: 10%;
+  height: 50%;
+  width: 70%;
+  border: none;
+}
+
+form
+{
+  border-bottom: 20px;
+}
+
+fieldset
+{
+  border: none;
+}
+
+.regularTextbox
+{
+  background: transparent;
+  border: 2px solid #000000;
+  color: #34495e;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  background-color: none;
+  width: 50%;
+  padding: 4px 19px;
+  border-radius: 10px;
+  box-shadow: none;
+  -webkit-transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+          transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+}
+
+.regularTextbox:hover
+{
+  background-color: rgba(240, 255, 255, 0.4);
+}
+
+.errorTextbox
+{
+  color: #e74c3c;
+  box-shadow: none;
+  background: transparent;
+  border: 2px solid #e74c3c;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  width: 50%;
+  background-color: none;
+  padding: 4px 19px;
+  border-radius: 10px;
+  -webkit-transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+          transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+}
+
+.errorTextbox:hover
+{
+  background-color: rgba(240, 255, 255, 0.4);
+}
+
+.errorTextbox::placeholder
+{
+  color: #e74c3c;
+}
+
+.divider
+{
+  display: block;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  width: 25%;
+}
+
+.divider > span
+{
+  display: inline-block;
+  position: relative
+}
+.divider > span:before, .divider > span:after
+{
+  background: #000000;
+  content: "";
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  width: 9999px;
+}
+
+.divider>span:before
+{
+  margin-right:15px;
+  right:100%
+}
+
+.divider>span:after
+{
+  left:100%;
+  margin-left:15px
+}
+
+.word
+{
+  color:#4b4f56
+}
+
+.submitButton
+{
+  position: relative;
+  cursor: pointer;
+  border: none;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-weight: lighter;
+  border-radius: 8px;
+  border-width: 8px 6px 0;
+  border-bottom-width: 0;
+  padding: 10px 100px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+          transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+  color: #ffffff;
+  background-color: #1ABC9C;
+  white-space: normal;
+}
+
+.createButton
+{
+  position: relative;
+  cursor: pointer;
+  border: none;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  font-weight: lighter;
+  border-radius: 8px;
+  border-width: 8px 6px 0;
+  border-bottom-width: 0;
+  padding: 10px 100px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+          transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+  color: #ffffff;
+  background-color: #3498DB;
+  white-space: normal;
+}
+
+.submitButton:hover, .submitButton:focus
+{
+  color: #ffffff;
+  background-color: #16A085;
+  border-color: #48c9b0
+}
+
+.createButton:hover, .createButton:focus
+{
+  color: #ffffff;
+  background-color: #2980B9;
+  border-color: #48c9b0
+}
+
+.submitButton span, .createButton span
+{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.submitButton span:after, .createButton span:after
+{
+  content: '  \00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.submitButton:hover span, .createButton:hover span
+{
+  padding-right: 25px;
+}
+
+.submitButton:hover span:after, .createButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+span
+{
+  font-weight: bold;
+}
+
+a
+{
+  text-decoration: none;
+}
+
+*:focus
+{
+    outline: none;
+}

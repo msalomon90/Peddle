@@ -1,0 +1,251 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Dec 07, 2017 at 07:14 AM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `project`
+--
+CREATE DATABASE IF NOT EXISTS `project` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `project`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Books`
+--
+
+CREATE TABLE `Books` (
+  `postID` int(5) NOT NULL,
+  `bookTitle` varchar(30) NOT NULL,
+  `bookAuthor` varchar(50) NOT NULL,
+  `bookPages` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Books`
+--
+
+INSERT INTO `Books` (`postID`, `bookTitle`, `bookAuthor`, `bookPages`) VALUES
+(1, 'Not a book lol', 'Hubert Cecotti', 0),
+(2, 'The Donut Book', 'Sally Levitt Steinberg', 140),
+(4, 'The Rules To Be Cool', 'Karla Doughberry', 233),
+(8, 'The Time Machine', 'H.G. Wells', 140),
+(10, 'F In Exams', 'Richard Benson', 29),
+(11, 'Happy Banana', 'Banana Co', 13),
+(12, 'An Autobiography', 'Me', 1),
+(13, 'CSC 130 Class 2017', 'Cecotti Original', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Comments`
+--
+
+CREATE TABLE `Comments` (
+  `commentID` int(5) NOT NULL,
+  `postID` int(5) NOT NULL,
+  `postUsername` varchar(30) NOT NULL,
+  `commentText` varchar(140) NOT NULL,
+  `commentDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Comments`
+--
+
+INSERT INTO `Comments` (`commentID`, `postID`, `postUsername`, `commentText`, `commentDate`) VALUES
+(1, 14, 'hubert', 'wtf...-_-', '2017-12-07'),
+(2, 12, 'hubert', 'Lol I live for this', '2017-12-07'),
+(3, 9, 'hubert', 'I\\\'m interested in your video .50', '2017-12-07'),
+(4, 2, 'hubert', 'You americans!', '2017-12-07'),
+(5, 14, 'simpsonhomer', 'Very educational, I learned a lot. Would love for my children to watch this as well. ', '2017-12-07'),
+(6, 11, 'simpsonhomer', 'Same color as me! WOW!', '2017-12-07'),
+(7, 13, 'fiddyman', 'lol so me', '2017-12-07'),
+(8, 12, 'fiddyman', 'Too true ', '2017-12-07'),
+(9, 10, 'fiddyman', 'F is for fantastic, right? Anyone?', '2017-12-07'),
+(10, 7, 'fiddyman', 'I\\\'ll pay $2', '2017-12-07'),
+(11, 14, 'coffeegirl', 'They need less coffee in their lives WTF', '2017-12-07'),
+(12, 11, 'coffeegirl', 'Cute', '2017-12-07'),
+(13, 9, 'coffeegirl', 'Interesting! Make one for coffee and I\\\'ll totally buy that! pls', '2017-12-07'),
+(14, 8, 'coffeegirl', 'Probably would go good with my coffee. To read of course, not eat', '2017-12-07'),
+(15, 3, 'coffeegirl', 'What an interesting game! Bravo! *clap*', '2017-12-07'),
+(16, 2, 'coffeegirl', 'I enjoy donuts with my coffee', '2017-12-07'),
+(17, 1, 'filmjunkie', 'Does the HDMI port work? ', '2017-12-07'),
+(18, 2, 'filmjunkie', 'This should be a movie!', '2017-12-07'),
+(19, 3, 'filmjunkie', 'I nominate this for the Oscars', '2017-12-07'),
+(20, 5, 'filmjunkie', 'Very artistic, great job here! Not worth $5 though :/', '2017-12-07'),
+(21, 7, 'filmjunkie', 'You\\\'re the problem!', '2017-12-07'),
+(22, 14, 'filmjunkie', 'I don\\\'t even know what to say...', '2017-12-07'),
+(23, 1, 'hubert', 'It has a great keyboard, and I\\\'m including the power supply for free :D', '2017-12-07'),
+(24, 3, 'hubert', 'I want to try this game. Looks good', '2017-12-07'),
+(25, 6, 'hubert', 'I have two of these at home. I don\\\'t need another one', '2017-12-07'),
+(26, 7, 'hubert', 'Bitcoin or venmo?', '2017-12-07'),
+(27, 11, 'hubert', 'lol', '2017-12-07'),
+(28, 1, 'michelle', 'Does this have an HDMI port?', '2017-12-07'),
+(29, 3, 'michelle', 'Planning to play this: winter break 2017!!!! Hit me up on xbox', '2017-12-07'),
+(30, 4, 'michelle', 'Someone pls buy this :(', '2017-12-07'),
+(31, 5, 'michelle', 'Coffee is for drinking, not playin\\\'', '2017-12-07'),
+(32, 7, 'michelle', 'psst....', '2017-12-07'),
+(33, 8, 'michelle', 'I love this book!', '2017-12-07'),
+(34, 10, 'michelle', ':(', '2017-12-07'),
+(35, 12, 'michelle', 'LOLOLOLOLOLOLOL', '2017-12-07'),
+(36, 1, 'hubert', 'Do you know how to read?', '2017-12-07'),
+(37, 1, 'sanjay', '^But does it work though?', '2017-12-07'),
+(38, 1, 'hubert', 'Windows 98 runs smoothly!', '2017-12-07'),
+(39, 1, 'sanjay', 'What about the HDMI?', '2017-12-07'),
+(40, 2, 'sanjay', 'This is why y\\\'all fat!', '2017-12-07'),
+(41, 3, 'sanjay', '^Guuurrrrrl hit me up! GT: Tinkly Region', '2017-12-07'),
+(42, 4, 'sanjay', 'You need to read this again ', '2017-12-07'),
+(43, 5, 'sanjay', 'That\\\'s a latte work xD', '2017-12-07'),
+(44, 6, 'sanjay', 'Cant afford with my 10k tuition fees :(', '2017-12-07'),
+(45, 7, 'sanjay', 'Wait a minute...', '2017-12-07'),
+(46, 8, 'sanjay', 'NERD!', '2017-12-07'),
+(47, 9, 'sanjay', 'The sounds are beautiful', '2017-12-07'),
+(48, 10, 'sanjay', 'Read this twice :|', '2017-12-07'),
+(49, 11, 'sanjay', 'THIS MAKES ME HAPPY', '2017-12-07'),
+(50, 13, 'sanjay', 'ya\\\'ll take notes?', '2017-12-07'),
+(51, 14, 'sanjay', 'What is wrong with you people?', '2017-12-07'),
+(52, 1, 'michelle', 'Look, if I have an hdmi cable , can I connect it to this laptop? AN HDMI. DOES IT WORK?!!', '2017-12-07'),
+(53, 2, 'michelle', 'Hey! Take that back or Imma roll over you!!', '2017-12-07'),
+(54, 1, 'nigerianprince', 'I send to you monies. Pls give me your paypal account I will submit $500 today. My uncle is sick and needs Windows 98', '2017-12-07'),
+(55, 6, 'nigerianprince', 'Check my girl http://bit.ly/2BJdJm5 Totally my instagram account. I buy Ferrari company with money order', '2017-12-07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Posts`
+--
+
+CREATE TABLE `Posts` (
+  `postID` int(5) NOT NULL,
+  `postUsername` varchar(30) NOT NULL,
+  `postTitle` varchar(100) NOT NULL,
+  `postDescription` varchar(280) DEFAULT NULL,
+  `postImage` varchar(100) DEFAULT NULL,
+  `postDateCreated` date NOT NULL,
+  `postPrice` int(7) NOT NULL,
+  `postDateModified` date NOT NULL,
+  `postIssaBook` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Posts`
+--
+
+INSERT INTO `Posts` (`postID`, `postUsername`, `postTitle`, `postDescription`, `postImage`, `postDateCreated`, `postPrice`, `postDateModified`, `postIssaBook`) VALUES
+(1, 'hubert', 'Dell Laptop', 'Beautiful laptop in pristine condition. HDMI port works perfectly. No issues whatsoever, especially with the HDMI port. ', 'https://i.ebayimg.com/images/g/iwAAAOSwjVVVj5JZ/s-l400.jpg', '2017-12-07', 450, '2017-12-07', 1),
+(2, 'simpsonhomer', 'Holey Donut', 'A book about my favorite meal. Helps you lose weight', 'https://pictures.abebooks.com/isbn/9780394755151-us.jpg', '2017-12-07', 30, '2017-12-07', 1),
+(3, 'sanjay', 'Rocket Leage Tournament', 'Rocket powered cars playing football', 'https://www.youtube.com/embed/H9VFqsSVuyM', '2017-12-07', 20, '2017-12-07', 0),
+(4, 'michelle', 'Cool Rulez', 'Do you want to be cool? Well, look no further BUY THIS BOOK NOW!!!!!!', 'http://awfullibrarybooks.net/wp-content/uploads/2010/09/Rules-to-be-cool-1.jpg', '2017-12-07', 98, '2017-12-07', 1),
+(5, 'coffeegirl', 'Coffee Artwork', 'Learn to art with coffee', 'https://www.youtube.com/embed/AdXhLgf7VfQ', '2017-12-07', 5, '2017-12-07', 0),
+(6, 'fiddyman', 'Ferrari 812', 'SUPERFAST!!!!!!!!!!!!!!!!!!', 'https://www.youtube.com/embed/b1YcwlmFEy8', '2017-12-07', 300000, '2017-12-07', 0),
+(7, 'moviepirate1997', 'Thor Ragnarok ', 'Brand new movie, perfect quality. ', 'https://www.youtube.com/embed/LsLlb8gyMns', '2017-12-07', 3, '2017-12-07', 0),
+(8, 'bookworm1990', 'The Time Machine', 'Classic book! My favorite, barely read though. Colored inside to make it interesting. Cute pictures', 'https://moviesaredamngood.files.wordpress.com/2013/04/200px-timemachinebook.jpg', '2017-12-07', 15, '2017-12-07', 1),
+(9, 'filmjunkie', 'Short Film', 'Film about avocados. Made by PES', 'https://www.youtube.com/embed/dNJdJIwCF_Y', '2017-12-07', 1, '2017-12-07', 0),
+(10, 'hubert', 'All my students', 'lul', 'http://www.hotelvaldecoro.com/img/love_coffee_table_book_1351562878.jpg', '2017-12-07', 10, '2017-12-07', 1),
+(11, 'michelle', 'Be Happy', 'Bring happiness into your life by reading this AMAZING book! It will change your life for the better. Be the banana', 'https://imgur.com/kdgLqti.jpg', '2017-12-07', 350, '2017-12-07', 1),
+(12, 'sanjay', 'Finals Feels', 'feelsbadman', 'https://imgur.com/FQ4BFy0.jpg', '2017-12-07', 23, '2017-12-07', 1),
+(13, 'hubert', 'My Students', 'Not sure if taking notes, or watching youtube', 'https://imgur.com/X81ncjI.jpg', '2017-12-07', 4, '2017-12-07', 1),
+(14, 'bookworm1990', 'Learn About Time', 'Educational video for children about time', 'https://www.youtube.com/embed/vtkGtXtDlQA', '2017-12-07', 6, '2017-12-07', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Users`
+--
+
+CREATE TABLE `Users` (
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `fname` varchar(30) DEFAULT NULL,
+  `lname` varchar(30) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`username`, `password`, `email`, `fname`, `lname`, `address`, `admin`) VALUES
+('bookworm1990', 'ilovebooks', 'bookporvida@books.com', 'NULL', 'NULL', 'NULL', 0),
+('coffeegirl', 'grande', 'coffeegirl@starbucks.com', 'NULL', 'NULL', 'NULL', 0),
+('fiddyman', 'fahad', 'fiddyman@mercedes.com', 'NULL', 'NULL', 'NULL', 0),
+('filmjunkie', 'movies', 'ilovefilms@movie.com', 'NULL', 'NULL', 'NULL', 0),
+('hubert', 'france', 'professor@csci.com', 'NULL', 'NULL', 'NULL', 1),
+('michelle', 'cool', 'coolgirl@cool.com', 'NULL', 'NULL', 'NULL', 1),
+('moviepirate1997', 'free', 'copyrightssuckz@bigfilm.com', 'NULL', 'NULL', 'NULL', 0),
+('nigerianprince', 'scam', 'mrgoodguy@scam.com', 'NULL', 'NULL', 'NULL', 0),
+('sanjay', 'srilanka', 'sanjay@sl.com', 'NULL', 'NULL', 'NULL', 1),
+('simpsonhomer', 'donut', 'simpsonh@springfield.com', 'NULL', 'NULL', 'NULL', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Videos`
+--
+
+CREATE TABLE `Videos` (
+  `postID` int(5) NOT NULL,
+  `videoTitle` varchar(30) NOT NULL,
+  `videoDuration` int(5) NOT NULL,
+  `videoGenre` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Videos`
+--
+
+INSERT INTO `Videos` (`postID`, `videoTitle`, `videoDuration`, `videoGenre`) VALUES
+(3, 'League of Rockets', 6546, '0'),
+(5, 'Latte Art', 18000, 'Slice of Life'),
+(6, 'Ferrari Teaser', 11592, 'Absurdist'),
+(7, 'Thor Ragnarok', 8760, 'Fantasy'),
+(9, 'Fresh Guacamole', 87, 'other'),
+(14, 'Don\\\'t Hug Me I\\\'m Scared ', 250, 'Adult'),
+(15, 'dsfsdfsdfsd', 14760, 'Comedy'),
+(16, 'asdvhh\\\'dsfb', 240, 'Absurdist');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Books`
+--
+ALTER TABLE `Books`
+  ADD PRIMARY KEY (`postID`);
+
+--
+-- Indexes for table `Comments`
+--
+ALTER TABLE `Comments`
+  ADD PRIMARY KEY (`commentID`);
+
+--
+-- Indexes for table `Posts`
+--
+ALTER TABLE `Posts`
+  ADD PRIMARY KEY (`postID`);
+
+--
+-- Indexes for table `Users`
+--
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`username`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `Videos`
+--
+ALTER TABLE `Videos`
+  ADD PRIMARY KEY (`postID`);
